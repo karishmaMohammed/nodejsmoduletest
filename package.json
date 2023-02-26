@@ -1,0 +1,28 @@
+{
+  "name": "node.js_module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cli-color": "^2.0.3",
+    "connect-mongodb-session": "^3.1.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.0",
+    "mongodb": "^5.1.0",
+    "mongoose": "^6.9.2",
+    "nodemailer": "^6.9.1",
+    "nodemon": "^2.0.20",
+    "path": "^0.12.7",
+    "validator": "^13.9.0"
+  }
+}

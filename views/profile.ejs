@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .profile-pic-div{
+    height: 200px;
+    width: 200px;
+    top: 25%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid grey;
+}
+
+#photo{
+    height: 100%;
+    width: 100%;
+}
+
+#file{
+    display: none;
+}
+
+#uploadBtn{
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    color: grey;
+    line-height: 30px;
+    font-family: sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    display: none;
+}
+ 
+button {   
+       background-color: red;   
+       width: 50%;  
+        color: black; 
+        font-weight: 700;  
+        padding: 15px;   
+        margin: 10px 0px;   
+        border: none;   
+        cursor: pointer;   
+         }   
+ 
+ input[type=text], input[type=password],input[type=number] {   
+        width: 100%;   
+        margin: 8px 0;  
+        padding: 12px 20px;   
+        display: inline-block;     
+        box-sizing: border-box;   
+    }  
+ button:hover {   
+        opacity: 0.7;   
+    }   
+  .cancelbtn {   
+        width: auto;   
+        padding: 10px 18px;  
+        margin: 10px 5px;  
+    }   
+        
+    input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;  
+ 
+   
+}
+    </style>
+</head>
+<body>
+    
+    <form action='/profile' method="POST"> 
+       
+        <div class="container"> 
+            <div class="profile-pic-div">
+                <img src="https://www.meme-arsenal.com/memes/b6a18f0ffd345b22cd219ef0e73ea5fe.jpg" id="photo">
+                <input type="file" id="file">
+                <label for="file" id="uploadBtn">Upload Photo</label>
+              </div>   </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <label for="name" style="font-weight: 700;">Name : </label>   
+            <input type="text" placeholder="Enter Name" name="name" required style="width:44%;border-radius: 8px;">  
+            <label for="username" style="font-weight: 700;">Username : </label>    
+            <input type="text" placeholder="Enter Username" name="username" required style="width:44%; border-radius: 8px;"> 
+            <label for="email" style="font-weight: 700;">Email : </label>  
+            <input type="text" placeholder="Enter Email" name="email" required style="border-radius: 8px;">   
+            <label for="phonenumber" style="font-weight: 700;">Mobile Number : </label>    
+            <input type="number" placeholder="Enter phonenumber" name="phonenumber" required style="border-radius: 8px;"  >  
+            <label for="password" style="font-weight: 700;">Password : </label>   
+            <input type="password" placeholder="Enter Password" name="password" required style="border-radius: 8px;">  
+            <label for="collegename" style="font-weight: 700;">College Name : </label>   
+            <input type="text" placeholder="Enter Name" name="name" required style="width:44%;border-radius: 8px;">  
+            <label for="state" style="font-weight: 700;">State : </label>   
+            <input type="text" placeholder="Enter Name" name="name" required style="width:44%;border-radius: 8px;">  
+            <label for="country" style="font-weight: 700;">Country : </label>   
+            <input type="text" placeholder="Enter Name" name="name" required style="width:44%;border-radius: 8px;">  <br>
+            <button type="submit">forgot password</button>   
+        </div>   
+    </form>     
+    
+      <script>
+        //declearing html elements
+
+const imgDiv = document.querySelector('.profile-pic-div');
+const img = document.querySelector('#photo');
+const file = document.querySelector('#file');
+const uploadBtn = document.querySelector('#uploadBtn');
+
+imgDiv.addEventListener('mouseenter', function(){
+    uploadBtn.style.display = "block";
+});
+
+imgDiv.addEventListener('mouseleave', function(){
+    uploadBtn.style.display = "none";
+});
+
+file.addEventListener('change', function(){
+
+    const choosedFile = this.files[0];
+
+    if (choosedFile) {
+
+        const reader = new FileReader(); 
+
+        reader.addEventListener('load', function(){
+            img.setAttribute('src', reader.result);
+        });
+
+        reader.readAsDataURL(choosedFile);
+    }
+});
+      </script>
+</body>
+</html>
